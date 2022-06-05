@@ -1,7 +1,11 @@
+## 0.0.1+2
+
+* Create export directive.
+* Create project exemple
 ## 0.0.1+1
 
-* TODO: Publication no Git.
+* Publication no Git.
 
 ## 0.0.1
 
-* TODO: Publication initial.
+* Publication initial.
