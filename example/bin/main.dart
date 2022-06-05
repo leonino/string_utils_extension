@@ -8,6 +8,7 @@ void main() {
   String capitalize = texto.toCapitalize();
   String pascalWithSnack = pascalCase.snack();
 
+  print("Capitalize            -> $texto");
   print("Capitalize            -> $capitalize");
   print("PascalCase            -> $pascalCase");
   print("camelCase             -> $camelCase");
@@ -16,3 +17,12 @@ void main() {
   print("snackRevert with ''   -> ${pascalWithSnack.snackRevert()}");
   print("snack Revert with ' ' -> ${pascalWithSnack.snackRevert(' ')}");
 }
+
+// Capitalize            -> to insert Type Residue
+// Capitalize            -> To insert type residue
+// PascalCase            -> ToInsertTypeResidue
+// camelCase             -> toInsertTypeResidue
+// snack_case            -> to_insert_type_residue
+// PascaCase with snack  -> To_Insert_Type_Residue
+// snackRevert with ''   -> To Insert Type Residue
+// snack Revert with ' ' -> To_ Insert_ Type_ Residue
