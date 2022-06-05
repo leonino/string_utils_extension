@@ -7,12 +7,12 @@ void main() {
   const String textLowerCase = "the my text";
   const String textPascalCase = "TheMyText";
   const String textCamelCase = "theMyText";
-  const String textSnackCase = "the_my_text";
-  const String textSnackPascal = "The_My_Text";
-  const String textSnackCamel = "the_My_Text";
-  const String textPascalCaseTOSnackRevert = "The My Text";
-  const String textCamelCaseTOSnackRevert = "the My Text";
-  const String textSnackCaseTOSnackRevert = "the my text";
+  const String textSnakeCase = "the_my_text";
+  const String textSnakePascal = "The_My_Text";
+  const String textSnakeCamel = "the_My_Text";
+  const String textPascalCaseTOSnakeRevert = "The My Text";
+  const String textCamelCaseTOSnakeRevert = "the My Text";
+  const String textSnakeCaseTOSnakeRevert = "the my text";
 
   group('Extension:', () {
     group('toCapitalize([bool isAll = false]) ->', () {
@@ -39,8 +39,8 @@ void main() {
       test("CamelCase", () {
         expect(textCamelCase.toPascalCase(), textPascalCase);
       });
-      test("SnackCase", () {
-        expect(textSnackCase.toPascalCase(), textPascalCase);
+      test("SnakeCase", () {
+        expect(textSnakeCase.toPascalCase(), textPascalCase);
       });
     });
     group('toCamelCase() ->', () {
@@ -56,64 +56,64 @@ void main() {
       test("CamelCase", () {
         expect(textCamelCase.toCamelCase(), textCamelCase);
       });
-      test("SnackCase", () {
-        expect(textSnackCase.toCamelCase(), textCamelCase);
+      test("SnakeCase", () {
+        expect(textSnakeCase.toCamelCase(), textCamelCase);
       });
     });
-    group('toSnackCase() ->', () {
+    group('toSnakeCase() ->', () {
       test("lowerCase", () {
-        expect(textLowerCase.toSnackCase(), textSnackCase);
+        expect(textLowerCase.toSnakeCase(), textSnakeCase);
       });
       test("all Capitalized", () {
-        expect(textCapitalizedAll.toSnackCase(), textSnackCase);
+        expect(textCapitalizedAll.toSnakeCase(), textSnakeCase);
       });
       test("PascalCase", () {
-        expect(textPascalCase.toSnackCase(), textSnackCase);
+        expect(textPascalCase.toSnakeCase(), textSnakeCase);
       });
       test("CamelCase", () {
-        expect(textCamelCase.toSnackCase(), textSnackCase);
+        expect(textCamelCase.toSnakeCase(), textSnakeCase);
       });
-      test("SnackCase", () {
-        expect(textSnackCase.toSnackCase(), textSnackCase);
+      test("SnakeCase", () {
+        expect(textSnakeCase.toSnakeCase(), textSnakeCase);
       });
     });
-    group('snack() ->', () {
+    group('snake() ->', () {
       test("Lowercase", () {
-        expect(textLowerCase.snack(), textSnackCase);
+        expect(textLowerCase.snake(), textSnakeCase);
       });
       test("all Capitalized", () {
-        expect(textCapitalizedAll.snack(), textSnackPascal);
+        expect(textCapitalizedAll.snake(), textSnakePascal);
       });
       test("PascalCase", () {
-        expect(textPascalCase.snack(), textSnackPascal);
+        expect(textPascalCase.snake(), textSnakePascal);
       });
       test("CamelCase", () {
-        expect(textCamelCase.snack(), textSnackCamel);
+        expect(textCamelCase.snake(), textSnakeCamel);
       });
-      test("SnackCase", () {
-        expect(textSnackCase.snack(), textSnackCase);
+      test("SnakeCase", () {
+        expect(textSnakeCase.snake(), textSnakeCase);
       });
     });
-    group('snackRevert() ->', () {
+    group('snakeRevert() ->', () {
       test("LowerCase", () {
-        var result = textLowerCase.snackRevert();
+        var result = textLowerCase.snakeRevert();
         expect(result, textLowerCase);
       });
       test("all Capitalized", () {
-        var result = textCapitalizedAll.snackRevert();
+        var result = textCapitalizedAll.snakeRevert();
         expect(result, textCapitalizedAll);
       });
       test("PascalCase", () {
-        var result = textPascalCase.snackRevert();
-        expect(result, textPascalCaseTOSnackRevert);
+        var result = textPascalCase.snakeRevert();
+        expect(result, textPascalCaseTOSnakeRevert);
       });
       test("CamelCase", () {
-        var result = textCamelCase.snackRevert();
-        expect(result, textCamelCaseTOSnackRevert);
+        var result = textCamelCase.snakeRevert();
+        expect(result, textCamelCaseTOSnakeRevert);
       });
-      test("SnackCase", () {
-        var result = textSnackCase.snackRevert();
-        expect(result, textSnackCaseTOSnackRevert);
+      test("SnakeCase", () {
+        var result = textSnakeCase.snakeRevert();
+        expect(result, textSnakeCaseTOSnakeRevert);
       });
     });
   });
