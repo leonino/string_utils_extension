@@ -1,39 +1,71 @@
-<!-- 
+<!--
 This README describes the package. If you publish this package to pub.dev,
 this README's contents appear on the landing page for your package.
 
 For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
 
 For general information about developing packages, see the Dart guide for
 [creating packages](https://dart.dev/guides/libraries/create-library-packages)
 and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
+[developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This is a simple extension, adding functionalities the class String giving super powers, como Capitalize a word or a text, you too can convert words to ("camelCase", "PascalCase", "snack_case"), you can too, "to snack" the a text, but not convert em lowercase, for this use:
+```dart
+Print("Any text can be Snackzed".snack())   // Any_text_can_be_Snackzed
+```
+or use "revert()" para transform the word converteds to ("camelCase", "PascalCase", "snack_case") in a text again
 
+```dart
+Any_text_can_be_Snackzed.revert() // Any text can be Snackzed
+```
 ## Features
 
 TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Not has prerequisites to user extension, your dependecy is oure dart
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Short and useful examples for package into `/example` folder.
 
 ```dart
-const like = 'sample';
+import 'package:string_utils_extension/string_utils_extension.dart';
+
+void main() {
+  String texto = "to insert Type Residue";
+  String pascalCase = texto.toPascalCase();
+  String camelCase = texto.toCamelCase();
+  String snackCase = texto.toSnackCase();
+  String capitalize = texto.toCapitalize();
+  String pascalWithSnack = pascalCase.snack();
+
+  print("The text              -> $texto");
+  print("Capitalize            -> $capitalize");
+  print("PascalCase            -> $pascalCase");
+  print("camelCase             -> $camelCase");
+  print("snack_case            -> $snackCase");
+  print("PascaCase with snack  -> $pascalWithSnack");
+  print("snackRevert with ''   -> ${pascalWithSnack.snackRevert()}");
+  print("snack Revert with ' ' -> ${pascalWithSnack.snackRevert(' ')}");
+}
+
+// Capitalize            -> to insert Type Residue
+// Capitalize            -> To insert type residue
+// PascalCase            -> ToInsertTypeResidue
+// camelCase             -> toInsertTypeResidue
+// snack_case            -> to_insert_type_residue
+// PascaCase with snack  -> To_Insert_Type_Residue
+// snackRevert with ''   -> To Insert Type Residue
+// snack Revert with ' ' -> To_ Insert_ Type_ Residue
+
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Thank you for uses this extension.
+
+
