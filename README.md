@@ -11,35 +11,35 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-This is a simple extension, adding functionalities the class String giving super powers, como Capitalize a word or a text, you too can convert words to ("camelCase", "PascalCase", "snack_case"), you can too, "to snack" the a text, but not convert em lowercase, para isso é "snack()" or use "revert()" para transform the word converteds to ("camelCase", "PascalCase", "snack_case") in a text again.
+This is a simple extension, adding functionalities the class String giving super powers, como Capitalize a word or a text, you too can convert words to ("camelCase", "PascalCase", "snake_case"), you can too, "to snake" the a text, but not convert em lowercase, para isso é "snake()" or use "revert()" para transform the word converteds to ("camelCase", "PascalCase", "snake_case") in a text again.
 
 ## Features
 
-For "to snackize" the a text, e not convert all words in lowercase, for this use "snack()",
+For "to snakeize" the a text, e not convert all words in lowercase, for this use "snake()",
 by default joim the words using the separator underscore "_", but you can to use anywere caracter.
 
 parameters:
 
-### [String? snackSeparator]: optional, and default is underscore "_"
-### [String? snackRegex]: optional, and default is "[A-Z]", regex then find all character uppercase, but case the word
+### [String? snakeSeparator]: optional, and default is underscore "_"
+### [String? snakeRegex]: optional, and default is "[A-Z]", regex then find all character uppercase, but case the word
 
 ```dart
 
-String snack([String? snackSeparator, String? snackRegex])
+String snake([String? snakeSeparator, String? snakeRegex])
 
-print("Any text can be Snackzed".snack());   // Any_text_can_be_Snackzed
+print("Any text can be Snakezed".snake());   // Any_text_can_be_Snakezed
 
-print("Any text can be Snackzed".snack("."));   // Any.text.can.be.Snackzed
+print("Any text can be Snakezed".snake("."));   // Any.text.can.be.Snakezed
 
 ```
 
-or use "revert()" para transform the word converteds to ("camelCase", "PascalCase", "snack_case") in a text again.
+or use "revert()" para transform the word converteds to ("camelCase", "PascalCase", "snake_case") in a text again.
 ```dart
 
-print("Any_text_can_be_Snackzed".revert()); // Any text can be Snackzed
+print("Any_text_can_be_Snakezed".revert()); // Any text can be Snakezed
 ```
 
-Note that both snack() and revert() do not change the state of words to lowercase or uppercase.
+Note that both snake() and revert() do not change the state of words to lowercase or uppercase.
 
 TODO: List what your package can do. Maybe include images, gifs, or videos.
 
@@ -58,28 +58,28 @@ void main() {
   String texto = "to insert Type Residue";
   String pascalCase = texto.toPascalCase();
   String camelCase = texto.toCamelCase();
-  String snackCase = texto.toSnackCase();
+  String snakeCase = texto.toSnakeCase();
   String capitalize = texto.toCapitalize();
-  String pascalWithSnack = pascalCase.snack();
+  String pascalWithSnake = pascalCase.snake();
 
   print("The text              -> $texto");
   print("Capitalize            -> $capitalize");
   print("PascalCase            -> $pascalCase");
   print("camelCase             -> $camelCase");
-  print("snack_case            -> $snackCase");
-  print("PascaCase with snack  -> $pascalWithSnack");
-  print("snackRevert with ''   -> ${pascalWithSnack.snackRevert()}");
-  print("snack Revert with ' ' -> ${pascalWithSnack.snackRevert(' ')}");
+  print("snake_case            -> $snakeCase");
+  print("PascaCase with snake  -> $pascalWithSnake");
+  print("snakeRevert with ''   -> ${pascalWithSnake.snakeRevert()}");
+  print("snake Revert with ' ' -> ${pascalWithSnake.snakeRevert(' ')}");
 }
 
 // Capitalize            -> to insert Type Residue
 // Capitalize            -> To insert type residue
 // PascalCase            -> ToInsertTypeResidue
 // camelCase             -> toInsertTypeResidue
-// snack_case            -> to_insert_type_residue
-// PascaCase with snack  -> To_Insert_Type_Residue
-// snackRevert with ''   -> To Insert Type Residue
-// snack Revert with ' ' -> To_ Insert_ Type_ Residue
+// snake_case            -> to_insert_type_residue
+// PascaCase with snake  -> To_Insert_Type_Residue
+// snakeRevert with ''   -> To Insert Type Residue
+// snake Revert with ' ' -> To_ Insert_ Type_ Residue
 
 ```
 

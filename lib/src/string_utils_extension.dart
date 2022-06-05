@@ -11,11 +11,11 @@
 ///
 /// ```[ String toCamelCase() ]```
 ///
-/// ```[ String toSnackCase() ]```
+/// ```[ String toSnakeCase() ]```
 ///
-/// ```[ String snack([String? separator, String? regex]) ]```
+/// ```[ String snake([String? separator, String? regex]) ]```
 ///
-/// ```[ String snackRevert([String? snackSeparator, String? snackRevertOperator]) ]```
+/// ```[ String snakeRevert([String? snakeSeparator, String? snakeRevertOperator]) ]```
 ///
 extension StringUtilsExtension on String {
   /// ```  "O meu texto".toCapitalize()  ```  ->  ```  "O meu texto"  ```
@@ -26,9 +26,9 @@ extension StringUtilsExtension on String {
     if ((this).isEmpty) return this;
     if (isAll) {
       return (this)
-          .split(StringUtilsExtension.snackRevertOperator)
+          .split(StringUtilsExtension.snakeRevertOperator)
           .map((s) => s._capitalize())
-          .join(snackRevertOperator);
+          .join(snakeRevertOperator);
     }
     return (this)._capitalize();
   }
@@ -44,10 +44,10 @@ extension StringUtilsExtension on String {
   ///
   String toPascalCase() {
     return (this)
-        .replaceAll(StringUtilsExtension.snackRevertOperator,
-            StringUtilsExtension.snackSeparator)
-        .snack()
-        .split(StringUtilsExtension.snackSeparator)
+        .replaceAll(StringUtilsExtension.snakeRevertOperator,
+            StringUtilsExtension.snakeSeparator)
+        .snake()
+        .split(StringUtilsExtension.snakeSeparator)
         .map((s) => s.trim().toCapitalize())
         .join();
   }
@@ -60,14 +60,14 @@ extension StringUtilsExtension on String {
     return texto[0].toLowerCase() + texto.substring(1);
   }
 
-  /// ```  "O meu texto".toSnackCase()  ```  ->  ```  "o_meu_texto"  ```
+  /// ```  "O meu texto".toSnakeCase()  ```  ->  ```  "o_meu_texto"  ```
   /// converte todas as palavras do texto para a primeira letra minusculas
   /// e inclui um undescore "_" entre elas tornando uma única palavra.
-  String toSnackCase() {
-    return (this).toCamelCase().snack().toLowerCase();
+  String toSnakeCase() {
+    return (this).toCamelCase().snake().toLowerCase();
   }
 
-  /// ```  "O meu texto".snack()  ```  ->  ```  "O_meu_texto"  ``` apenas inclui um
+  /// ```  "O meu texto".snake()  ```  ->  ```  "O_meu_texto"  ``` apenas inclui um
   /// undescore "_" entre todas as palavras e as une em uma única. posui dois
   /// parametro que podem ser usados para modificar a sua maneira de agir.
   /// ```[ String? separator ]``` por padrão é o underscore "_" mais você pode
@@ -78,49 +78,49 @@ extension StringUtilsExtension on String {
   /// um string um Regex que identifique uma tipo para quebra uma palvra ou
   /// texto empedaços menores.
   ///
-  String snack([String? snackSeparator, String? snackRegex]) {
-    snackSeparator ??= StringUtilsExtension.snackSeparator;
-    snackRegex ??= StringUtilsExtension.snackRegex;
-    if ((this).split(snackRevertOperator).length > 1) {
+  String snake([String? snakeSeparator, String? snakeRegex]) {
+    snakeSeparator ??= StringUtilsExtension.snakeSeparator;
+    snakeRegex ??= StringUtilsExtension.snakeRegex;
+    if ((this).split(snakeRevertOperator).length > 1) {
       return this[0] +
-          (this).substring(1).replaceAll(snackRevertOperator, snackSeparator);
+          (this).substring(1).replaceAll(snakeRevertOperator, snakeSeparator);
     }
     return this[0] +
         (this).substring(1).replaceAllMapped(
-            RegExp(snackRegex),
+            RegExp(snakeRegex),
             (Match m) =>
-                "$snackSeparator${m.input.substring(m.start, m.start + 1)}");
+                "$snakeSeparator${m.input.substring(m.start, m.start + 1)}");
   }
 
-  /// ```  "O_meu_texto".snack  ```  ->  ```  "Omeutexto"  ``` apenas retira o
+  /// ```  "O_meu_texto".snake  ```  ->  ```  "Omeutexto"  ``` apenas retira o
   /// undescore "_" entre todas as palavras e as une em uma única. posui dois
   /// parametro que podem ser usados para modificar a sua maneira de agir.
-  /// ```[ [String? snackSeparator ]``` por padrão é o underscore "_" mais você pode
+  /// ```[ [String? snakeSeparator ]``` por padrão é o underscore "_" mais você pode
   /// informar qualquer outro ```[ String ]``` no lugar.
-  /// ```[ String? snackRevertOperator ]``` por padrão é um espaço ``` " " ``` que
+  /// ```[ String? snakeRevertOperator ]``` por padrão é um espaço ``` " " ``` que
   /// separa as palavras em um texto. você pode
   /// informar qualquer outro ```[ String ]``` no seu lugar
   ///
-  String snackRevert([String? snackSeparator, String? snackRevertOperator]) {
-    snackSeparator ??= StringUtilsExtension.snackSeparator;
-    snackRevertOperator ??= StringUtilsExtension.snackRevertOperator;
-    if ((this).split(snackRevertOperator).length > 1) {
+  String snakeRevert([String? snakeSeparator, String? snakeRevertOperator]) {
+    snakeSeparator ??= StringUtilsExtension.snakeSeparator;
+    snakeRevertOperator ??= StringUtilsExtension.snakeRevertOperator;
+    if ((this).split(snakeRevertOperator).length > 1) {
       return this;
-    } else if ((this).split(snackSeparator).length > 1) {
-      return (this).replaceAll(snackSeparator, snackRevertOperator);
+    } else if ((this).split(snakeSeparator).length > 1) {
+      return (this).replaceAll(snakeSeparator, snakeRevertOperator);
     }
     return this[0] +
-        (this).substring(1).replaceAllMapped(RegExp(snackRegex), (Match m) {
+        (this).substring(1).replaceAllMapped(RegExp(snakeRegex), (Match m) {
           var letra = m.input.substring(m.start, m.start + 1);
           var letraAnterior = m.input.substring(m.start - 1, m.start);
-          if (letraAnterior != snackRevertOperator) {
-            return "$snackRevertOperator$letra";
+          if (letraAnterior != snakeRevertOperator) {
+            return "$snakeRevertOperator$letra";
           }
           return letra;
         });
   }
 
-  static const String snackRegex = "[A-Z]";
-  static const String snackSeparator = "_";
-  static const String snackRevertOperator = " ";
+  static const String snakeRegex = "[A-Z]";
+  static const String snakeSeparator = "_";
+  static const String snakeRevertOperator = " ";
 }

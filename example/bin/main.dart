@@ -4,25 +4,25 @@ void main() {
   String texto = "to insert Type Residue";
   String pascalCase = texto.toPascalCase();
   String camelCase = texto.toCamelCase();
-  String snackCase = texto.toSnackCase();
+  String snakeCase = texto.toSnakeCase();
   String capitalize = texto.toCapitalize();
-  String pascalWithSnack = pascalCase.snack();
+  String pascalWithSnake = pascalCase.snake();
 
   print("Capitalize            -> $texto");
   print("Capitalize            -> $capitalize");
   print("PascalCase            -> $pascalCase");
   print("camelCase             -> $camelCase");
-  print("snack_case            -> $snackCase");
-  print("PascaCase with snack  -> $pascalWithSnack");
-  print("snackRevert with ''   -> ${pascalWithSnack.snackRevert()}");
-  print("snack Revert with ' ' -> ${pascalWithSnack.snackRevert(' ')}");
+  print("snake_case            -> $snakeCase");
+  print("PascaCase with snake  -> $pascalWithSnake");
+  print("snakeRevert with ''   -> ${pascalWithSnake.snakeRevert()}");
+  print("snake Revert with ' ' -> ${pascalWithSnake.snakeRevert(' ')}");
 }
 
 // Capitalize            -> to insert Type Residue
 // Capitalize            -> To insert type residue
 // PascalCase            -> ToInsertTypeResidue
 // camelCase             -> toInsertTypeResidue
-// snack_case            -> to_insert_type_residue
-// PascaCase with snack  -> To_Insert_Type_Residue
-// snackRevert with ''   -> To Insert Type Residue
-// snack Revert with ' ' -> To_ Insert_ Type_ Residue
+// snake_case            -> to_insert_type_residue
+// PascaCase with snake  -> To_Insert_Type_Residue
+// snakeRevert with ''   -> To Insert Type Residue
+// snake Revert with ' ' -> To_ Insert_ Type_ Residue
