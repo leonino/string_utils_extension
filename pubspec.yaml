@@ -1,6 +1,6 @@
 name: string_utils_extension
 description: Fuctions utilitárias para manipular Strings.
-version: 0.0.1+4
+version: 0.0.1+5
 repository: https://github.com/leonino/string_utils_extension.git
 issue_tracker: https://github.com/leonino/string_utils_extension/issues
 

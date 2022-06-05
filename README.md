@@ -11,16 +11,35 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-This is a simple extension, adding functionalities the class String giving super powers, como Capitalize a word or a text, you too can convert words to ("camelCase", "PascalCase", "snack_case"), you can too, "to snack" the a text, but not convert em lowercase, for this use:
-```dart
-Print("Any text can be Snackzed".snack())   // Any_text_can_be_Snackzed
-```
-or use "revert()" para transform the word converteds to ("camelCase", "PascalCase", "snack_case") in a text again
+This is a simple extension, adding functionalities the class String giving super powers, como Capitalize a word or a text, you too can convert words to ("camelCase", "PascalCase", "snack_case"), you can too, "to snack" the a text, but not convert em lowercase, para isso é "snack()" or use "revert()" para transform the word converteds to ("camelCase", "PascalCase", "snack_case") in a text again.
+
+## Features
+
+For "to snackize" the a text, e not convert all words in lowercase, for this use "snack()",
+by default joim the words using the separator underscore "_", but you can to use anywere caracter.
+
+parameters:
+
+### [String? snackSeparator]: optional, and default is underscore "_"
+### [String? snackRegex]: optional, and default is "[A-Z]", regex then find all character uppercase, but case the word
 
 ```dart
-Any_text_can_be_Snackzed.revert() // Any text can be Snackzed
+
+String snack([String? snackSeparator, String? snackRegex])
+
+print("Any text can be Snackzed".snack());   // Any_text_can_be_Snackzed
+
+print("Any text can be Snackzed".snack("."));   // Any.text.can.be.Snackzed
+
 ```
-## Features
+
+or use "revert()" para transform the word converteds to ("camelCase", "PascalCase", "snack_case") in a text again.
+```dart
+
+print("Any_text_can_be_Snackzed".revert()); // Any text can be Snackzed
+```
+
+Note that both snack() and revert() do not change the state of words to lowercase or uppercase.
 
 TODO: List what your package can do. Maybe include images, gifs, or videos.
 
@@ -67,5 +86,3 @@ void main() {
 ## Additional information
 
 Thank you for uses this extension.
-
-
