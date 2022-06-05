@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:string_utils_extension/string_utils_extension.dart';
+import 'package:string_utils_extension/src/string_utils_extension.dart';
 
 void main() {
   const String textCapitalized = "The my text";
