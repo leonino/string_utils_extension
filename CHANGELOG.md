@@ -1,7 +1,10 @@
-## 0.0.1+6
+## 0.0.1+7
 
 * update readme file
 * replace name from "Snack" to "Snake"
+* ## 0.0.1+6
+
+* update readme file
 ## 0.0.1+5
 
 * update readme file
